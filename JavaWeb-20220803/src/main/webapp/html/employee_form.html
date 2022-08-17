@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet"
+	href="https://unpkg.com/purecss@2.1.0/build/pure-min.css">
+<meta charset="UTF-8">
+<title>員工表單</title>
+</head>
+<body style="padding: 20px">
+	<form class="pure-form" method="post" action="/JavaWeb-20220803/servlet/httpServlet/EmployeeServlet">
+		<fieldset>
+			<legend>員工表單</legend>
+			姓名: <input type="text" placeholder="輸入姓名" name="empName" value="John" /><p />
+			年齡: <input type="number" placeholder="輸入年齡" name="empAge" value="25" /><p />
+			性別: <input type="radio" name="empSex" value="M" checked />男
+				 <input type="radio" name="empSex" value="F" />女
+			     <p />
+			階級: <select name="empPos">
+					<option value="A">專員</option>
+					<option value="B" selected>工程師</option>
+					<option value="C">經理</option>
+				 </select>
+				 <p />
+			生日: <input type="date" name="empBirth" value="1990-05-20" /><p />	 
+			語言: <input type="checkbox" name="empLang" value="C" />C
+				 <input type="checkbox" name="empLang" value="Java" checked />Java
+				 <input type="checkbox" name="empLang" value="Python" checked />Python
+				 <input type="checkbox" name="empLang" value="VB" />VB
+				 <input type="checkbox" name="empLang" value="Cobol" />Cobol
+				 <p />
+			備註: <textarea name="empMemo" cols="25" rows="3">其他資料請寫在這裡...</textarea>
+				 <p />
+			QRCode 1: <img src="/JavaWeb-20220803/servlet/httpServlet/BabyQRServlet" width="150" align="middle" /><p />
+			QRCode 2: <img src="/JavaWeb-20220803/image/baby.png" width="150" align="middle" /><p />
+			QRCode 3: <img src="https://img.buzzfeed.com/buzzfeed-static/static/2015-04/14/11/enhanced/webdr13/longform-original-13335-1429024178-4.jpg?downsize=700%3A%2A&output-quality=auto&output-format=auto" width="150" align="middle" /><p />
+				 
+			<button type="reset" class="pure-button pure-button-primary">
+				重置
+			</button>
+			<button type="submit" class="pure-button pure-button-primary">
+				傳送
+			</button>
+		</fieldset>
+	</form>
+</body>
+</html>

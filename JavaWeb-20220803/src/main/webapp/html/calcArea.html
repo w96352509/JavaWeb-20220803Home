@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>計算面積</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css">
+    </head>
+    <body style="padding: 20px">
+        <form class="pure-form" method="post" action="/JavaWeb-20220803/servlet/httpServlet/AreaCalcServlet">
+            <fieldset>
+                <legend>計算面積</legend>
+                
+                <!-- 第一組 -->
+                <select name="type">
+                    <option value="1" selected>圓面積</option>
+                    <option value="2">球體積</option>
+                </select>
+                <input type="number" placeholder="請輸入半徑" name="r" />
+                <p />
+                <!-- 第二組 -->
+                <select name="type">
+                    <option value="1" selected>圓面積</option>
+                    <option value="2">球體積</option>
+                </select>
+                <input type="number" placeholder="請輸入半徑" name="r" />
+                <p />
+                <!-- 第三組 -->
+                <select name="type">
+                    <option value="1" selected>圓面積</option>
+                    <option value="2">球體積</option>
+                </select>
+                <input type="number" placeholder="請輸入半徑" name="r" />
+                <p />
+                
+                <button type="submit" class="pure-button pure-button-primary">計算</button>
+            </fieldset>
+        </form>
+    </body>
+</html>

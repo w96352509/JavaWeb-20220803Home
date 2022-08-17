@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet"
+	href="https://unpkg.com/purecss@2.1.0/build/pure-min.css">
+<meta charset="UTF-8">
+<title>Message Form</title>
+</head>
+ <script type="text/javascript">
+  // 預覽貼圖 
+  function previewSticker()  {
+   var stickerId = document.getElementById('stickerId').value;
+   // 此網址是圖片原始碼中的連結對圖片右鍵檢查 
+   var imgUrl = "https://stickershop.line-scdn.net/stickershop/v1/sticker/" + stickerId + "/android/sticker.png";
+   document.getElementById('previewStickerArea').innerHTML = "<img valign='middle' width='100' src='" + imgUrl + "'>";
+  }
+  
+// 預覽Web圖 
+	function previewWebImage() {
+		var webImageUrl = document.getElementById('webImageUrl').value;
+		webImageUrl = webImageUrl.trim();
+		if(webImageUrl != '') {
+			if(!(webImageUrl.indexOf('http://') >= 0 || webImageUrl.indexOf('https://') >= 0)) {
+				// 自動在網址前面加上 https://			
+				document.getElementById('webImageUrl').value = 'https://' + webImageUrl;
+				// 重新抓取 webImageUrl 資料
+				webImageUrl = document.getElementById('webImageUrl').value;
+			}
+		}
+		console.log(webImageUrl); // 印在瀏覽器的 console 中
+		document.getElementById('previewWebImageArea').innerHTML = "<img src='" + webImageUrl + "'>";
+	}
+	
+  
+  // 表單傳送前的驗證
+  function beforeSubmit() {
+    var content = document.getElementById('content').value;
+    content = content.trim();
+    if(content == '' ){
+       alert('請輸入內容');
+       document.getElementById('content').focus;
+       return false;
+    }
+   // 2.若 webImageUrl 欄位有資料且前面沒有加上http:// 或 https://, 則統一補上 https://
+		var webImageUrl = document.getElementById('webImageUrl').value;
+		webImageUrl = webImageUrl.trim();
+		if(webImageUrl != '') {
+			if(!(webImageUrl.indexOf('http://') >= 0 || webImageUrl.indexOf('https://') >= 0)) {
+				// 自動在網址前面加上 https://			
+				document.getElementById('webImageUrl').value = 'https://' + webImageUrl;
+			}
+		}
+    return true;
+  }
+ 
+ </script>
+<body style="padding: 20px">
+	<form class="pure-form" 
+		  method="post" 
+		  onsubmit="return beforeSubmit()"
+		  action="/JavaWeb-20220803/servlet/message">
+		<fieldset>
+			<legend>Message Form</legend>
+			訊息: <textarea type="text" placeholder="請輸入訊息" name="content" id="content"></textarea>
+			<p />
+			貼圖(stickerPackageId + stickerId): <br />
+			<input type="number" name="stickerPackageId" id="stickerPackageId" value="6325" style="width: 100px" />
+			<input type="number" onchange="previewSticker()" name="stickerId" id="stickerId" value="10979907" style="width: 120px" />
+			<button type="button" onclick="previewSticker()" class="pure-button pure-button-primary">
+				預覽
+			</button>
+			<span id="previewStickerArea"></span>
+			<p />
+			網路圖片位置: 
+			<input type="text" name="webImageUrl" id="webImageUrl" value="" />
+			<button type="button" onclick="previewWebImage()" class="pure-button pure-button-primary">
+				預覽
+			</button>
+			<div id="previewWebImageArea"></div>
+			<p />
+			<button type="submit" class="pure-button pure-button-primary">
+				傳送
+			</button>
+		</fieldset>
+	</form>
+</body>
+</html>
