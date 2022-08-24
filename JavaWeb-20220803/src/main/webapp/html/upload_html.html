@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Upload Form</title>
+</head>
+<body style="padding: 20px">
+	<form class="pure-form" enctype="multipart/form-data" method="post" action="/JavaWeb-20220803/servlet/upload/file">
+		<fieldset>
+			<legend>text Form</legend>
+			<input name="cname" type="text" placeholder="文件名稱" value="" class="pure-input-rounded"><p /> 
+			<p />
+			<input type="file" name="upload_file" class="pure-button" />
+			<p />
+			<button type="submit" class="pure-button pure-button-primary">
+				上傳
+			</button>
+		</fieldset>
+	</form>
+	<p />
+	
+	<form class="pure-form" enctype="multipart/form-data" method="post" action="/JavaWeb-20220803/servlet/upload/image">
+		<fieldset>
+			<legend>Image Form</legend>
+			<input name="cname" type="text" placeholder="文件名稱" value="" class="pure-input-rounded"><p /> 
+			<p />
+			<input type="file" name="upload_file" class="pure-button" />
+			<p />
+			<button type="submit" class="pure-button pure-button-primary">
+				上傳
+			</button>
+		</fieldset>
+	</form>
+</body>
+</html>
