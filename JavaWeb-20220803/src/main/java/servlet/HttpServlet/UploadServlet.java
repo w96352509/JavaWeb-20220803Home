@@ -38,7 +38,7 @@ public class UploadServlet extends HttpServlet {
 
 		switch (path) {
 		case "/file":
-			uploadFile(req , resp);
+			uploadFile(req ,  resp);
 			break;
 
 		case "/image":
