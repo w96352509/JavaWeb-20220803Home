@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.MessageService;
 
-
 @WebServlet("/servlet/message")
 public class MessageServlet extends HttpServlet {
 
